@@ -1,0 +1,72 @@
+// Media queries
+
+@mixin mq($min: null, $max: null) {
+  $instructions: '';
+  @if ($max and $min) {
+    $instructions: '(min-width: #{$min}) and (max-width: #{$max})';
+  }@elseif ($min) {
+    $instructions: '(min-width: #{$min})';
+  }@elseif ($max) {
+    $instructions: '(max-width: #{$max})';
+  }
+
+  @media #{$instructions} {
+    @content;
+  }
+}
+
+@mixin media-uxs {
+  @include mq($max: 400px) {
+    @content;
+  }
+}
+
+@mixin media-xs {
+  @include mq(401px, 543px) {
+    @content;
+  }
+}
+
+@mixin media-sm {
+  @include mq(544px, 767px) {
+    @content;
+  }
+}
+
+@mixin media-md {
+  @include mq(768px, 991px) {
+    @content;
+  }
+}
+
+@mixin media-xs-up {
+  @include mq($min: 401px) {
+    @content;
+  }
+}
+
+@mixin media-lg-up {
+  @include mq($min: 991px) {
+    @content;
+  }
+}
+
+@mixin media-lg {
+  @include media-lg-up {
+    @content;
+  }
+}
+
+// Landings
+
+@mixin flag-block-mq-content($items-per-row) {
+  &:nth-child(#{$items-per-row}n+#{$items-per-row}) {
+    border-right: 0;
+  }
+
+  &:nth-last-child(-n+#{$items-per-row - 1}) {
+    border-bottom: 0;
+  }
+
+  width: calc(100% / #{$items-per-row});
+}

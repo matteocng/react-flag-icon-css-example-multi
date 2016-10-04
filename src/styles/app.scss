@@ -1,0 +1,38 @@
+@import 'variables';
+@import 'mixins';
+@import 'colors';
+
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1rem;
+}
+
+%base-heading {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.header {
+  padding: 0 0 2rem;
+}
+
+.heading {
+  @extend %base-heading;
+  font-size: 1.5rem;
+}
+
+.sub-heading {
+  @extend %base-heading;
+  color: col(red-it);
+  font-size: .8rem;
+}
+
+// Flags
+
+.flag-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}

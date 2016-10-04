@@ -1,0 +1,53 @@
+@import 'variables';
+@import 'mixins';
+@import 'colors';
+@import 'CustomFlag';
+
+
+.flag-block {
+  border-bottom: 1px dotted col(grey-ultra-light);
+  border-right: 1px dotted col(grey-ultra-light);
+  box-sizing: border-box;
+  padding: 1rem .5rem 0;
+  text-align: center;
+  transition: background .5s;
+
+  .country-name {
+    margin-top: 1rem;
+  }
+
+  .country-code {
+    color: col(red-it);
+    font-size: $font-size-country-code;
+    padding: 0 0 0 .25rem;
+  }
+
+  &:hover {
+    background: col(grey-light);
+  }
+
+  &:last-child {
+    border-right: 0;
+  }
+
+  @include media-uxs {
+    border-right: 0;
+    width: 100%;
+  }
+
+  @include media-xs {
+    @include flag-block-mq-content(2);
+  }
+
+  @include media-sm {
+    @include flag-block-mq-content(3);
+  }
+
+  @include media-md {
+    @include flag-block-mq-content(4);
+  }
+
+  @include media-lg-up {
+    @include flag-block-mq-content(5);
+  }
+}
