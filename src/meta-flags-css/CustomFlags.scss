@@ -1,0 +1,11 @@
+$flag-icon-css-path: './images' !default;
+@import '../../node_modules/flag-icon-css/sass/variables';
+@import '../../node_modules/flag-icon-css/sass/flag-icon-base';
+
+@include flag-icon(w1);
+@include flag-icon(w2);
+@include flag-icon(w3);
+
+.theme-base {
+  cursor: default; // just a placeholder
+}

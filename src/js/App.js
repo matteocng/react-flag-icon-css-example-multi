@@ -34,6 +34,9 @@ const AppFactory = (options: AppFactoryOptionsType) : ReactType.createElement =>
         <div {...propsSubHeading}>{props.subHeadingText}</div>
       </div>
       <div {...propsFlagContainer}>
+        <FlagBlock name="Custom 1" code="w1" />
+        <FlagBlock name="Custom 2" code="w2" />
+        <FlagBlock name="Custom 3" code="w3" />
         { aCountries.map((obj: CountryType) : React$Element<FlagBlock> => renderFlagBlock(obj)) }
       </div>
     </span>)
