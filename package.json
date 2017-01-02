@@ -68,7 +68,6 @@
     "flow-bin": "^0.37.4",
     "html-webpack-plugin": "^2.25.0",
     "json-loader": "^0.5.4",
-    "react-hot-loader": "^3.0.0-beta.4",
     "postcss-loader": "^1.2.1",
     "pre-commit": "^1.2.2",
     "react-flag-icon-css": "^1.0.7",

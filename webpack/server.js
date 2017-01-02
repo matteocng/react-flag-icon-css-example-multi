@@ -11,7 +11,6 @@ var compiler = webpack(config)
 
 const server = new WebpackDevServer(compiler, {
   contentBase: outputPath,
-  hot: true,
   filename: config.output.filename,
   publicPath: config.output.publicPath,
   stats: {

@@ -15,8 +15,4 @@ const render = () => {
   ReactDOM.render(<App {...appProps} />, rootEL)
 }
 
-if (module.hot) {
-  module.hot.accept('./App', () : void => render())
-}
-
 render()
