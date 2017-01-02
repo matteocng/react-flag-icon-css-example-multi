@@ -7,8 +7,10 @@ import type { FlagBlockPropsType } from '../types/flow'
 import styles from '../styles/FlagBlock.scss'
 
 
-const renderCustomFlagChildren = (i: number,
-                                  props: FlagBlockPropsType) : React$Element<*> | null => {
+const renderCustomFlagChildren = (
+  i: number,
+  props: FlagBlockPropsType
+): React$Element<*> | null => {
   const { name, code } = props
   const containerProps = { [getStylePropName()]: 'country-name' }
   const codeProps = { [getStylePropName()]: 'country-code' }
@@ -25,7 +27,7 @@ renderCustomFlagChildren.propTypes = {
   code: React.PropTypes.string.isRequired
 }
 
-const FlagBlock = (props: FlagBlockPropsType) : React$Element<*> => {
+const FlagBlock = (props: FlagBlockPropsType): React$Element<*> => {
   const { code, name } = props
   const sizes = ['', 'lg', '2x', '3x', '4x']
   const flip = ['', '', '', 'vertical', 'horizontal']
@@ -35,7 +37,7 @@ const FlagBlock = (props: FlagBlockPropsType) : React$Element<*> => {
   const randomFlips: Array<string | number> = getRandomElements(flip, flip.length)
 
   return (<div {...containerProps}>
-    { sizes.map((size: string, i: number) : React$Element<CustomFlag> => {
+    { sizes.map((size: string, i: number): React$Element<CustomFlag> => {
       const customFlagProps = Object.assign({},
                                     { code, name, [getStylePropName()]: 'flag' }
                                     , size ? { size } : {}

@@ -60,6 +60,8 @@
 // Landings
 
 @mixin flag-block-mq-content($items-per-row) {
+  width: calc(100% / #{$items-per-row});
+
   &:nth-child(#{$items-per-row}n+#{$items-per-row}) {
     border-right: 0;
   }
@@ -67,6 +69,4 @@
   &:nth-last-child(-n+#{$items-per-row - 1}) {
     border-bottom: 0;
   }
-
-  width: calc(100% / #{$items-per-row});
 }

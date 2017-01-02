@@ -8,7 +8,7 @@ import type { CustomFlagPropsType } from '../types/flow'
 import themeStyles from '../meta-flags-css'
 
 
-export default ({ ...props, children }: CustomFlagPropsType) : React$Element<*> => {
+export default ({ ...props, children }: CustomFlagPropsType): React$Element<*> => {
   const FlagIcon = FlagIconFactory(React, { useCssModules: __USE_CSS_MODULES__, themeStyles })
   const { className } = props
   const flagIconProps = pick(props, ['code', 'size', 'flip', 'rotate', 'squared', 'Component'])
