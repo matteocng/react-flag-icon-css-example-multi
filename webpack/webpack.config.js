@@ -12,31 +12,37 @@ const context = path.join(__dirname, '../src/js')
 export const outputPath = 'www'
 
 
-const getExtractTextPluginLoader = options => {
-  const useCssModules = JSON.parse(process.env.USE_CSS_MODULES)
-  const cssLoaderArgs = useCssModules ?
-    '?modules&importLoaders=2&localIdentName=[name]__[local]__[hash:base64:5]' : ''
-
-  return [ `css${cssLoaderArgs}` + '!postcss' + '!sass']
-}
-
 const getRules = options => {
+  const useCssModules = JSON.parse(process.env.USE_CSS_MODULES)
+
   return [
     {
       test: JS_REGEX,
-      loaders: ['babel'],
+      loaders: ['babel-loader'],
       exclude: /node_modules/
     },
     {
       test: CSS_REGEX,
       loader: ExtractTextPlugin.extract({
-        fallbackLoader: "style",
-        loader: getExtractTextPluginLoader(options)
-      })
+        fallbackLoader: "style-loader",
+        loader: [
+          { loader: 'css-loader', query: {
+            modules: useCssModules,
+            importLoaders: useCssModules ? 2 : '',
+            localIdentName: useCssModules ? '[name]__[local]__[hash:base64:5]' : ''
+          } },
+          { loader: 'postcss-loader' },
+          { loader: 'sass-loader', options: {} }
+        ]
+      }),
     },
     {
       test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-      loader: "file"
+      loader: "file-loader"
+    },
+    {
+      test: /\.json$/,
+      loader: "json-loader"
     }
  ]
 }
@@ -64,14 +70,6 @@ const config = options => {
         githubRepositoryUrl: 'https://github.com/matteocng/react-flag-icon-css'
       }),
       new ExtractTextPlugin('bundle.css'),
-      new webpack.LoaderOptionsPlugin({
-        options: {
-          context: __dirname,
-          postcss: [
-            autoprefixer
-          ]
-        }
-      }),
       new webpack.DefinePlugin({
         __USE_CSS_MODULES__: JSON.stringify(JSON.parse(process.env.USE_CSS_MODULES || 'true'))
       })
