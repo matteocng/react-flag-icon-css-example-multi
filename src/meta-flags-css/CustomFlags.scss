@@ -1,3 +1,9 @@
+/**
+ * Note: this file doesn't have to contain SASS, you can write it in simple Css,
+ * PostCSS, or whatever preprocessor your app is using. See below for the Css
+ * version.
+*/
+
 $flag-icon-css-path: './images' !default;
 @import '../../node_modules/flag-icon-css/sass/variables';
 @import '../../node_modules/flag-icon-css/sass/flag-icon-base';
@@ -9,3 +15,30 @@ $flag-icon-css-path: './images' !default;
 .theme-base {
   cursor: default; // just a placeholder
 }
+
+// Css version of this file.
+/*
+.flag-icon-w1 {
+  background-image: url(./images/4x3/w1.svg);
+}
+
+.flag-icon-w1.flag-icon-squared {
+  background-image: url(./images/1x1/w1.svg);
+}
+
+.flag-icon-w2 {
+  background-image: url(./images/4x3/w2.svg);
+}
+
+.flag-icon-w2.flag-icon-squared {
+  background-image: url(./images/1x1/w2.svg);
+}
+
+.flag-icon-w3 {
+  background-image: url(./images/4x3/w3.svg);
+}
+
+.flag-icon-w3.flag-icon-squared {
+  background-image: url(./images/1x1/w3.svg);
+}
+*/
