@@ -1,5 +1,6 @@
 // @flow
 import React from 'react'
+import PropTypes from 'prop-types'
 import CssModules from 'react-css-modules'
 import CustomFlag from './CustomFlag'
 import { getStylePropName, generateFlagLink, getRandomElements } from './functions'
@@ -23,8 +24,8 @@ const renderCustomFlagChildren = (
 }
 
 renderCustomFlagChildren.propTypes = {
-  name: React.PropTypes.string.isRequired,
-  code: React.PropTypes.string.isRequired
+  name: PropTypes.string.isRequired,
+  code: PropTypes.string.isRequired
 }
 
 const FlagBlock = (props: FlagBlockPropsType): React$Element<*> => {
