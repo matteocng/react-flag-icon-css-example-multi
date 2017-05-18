@@ -29,7 +29,7 @@ acorn@^3.0.4:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-3.3.0.tgz#45e37fb39e8da3f25baee3ff5369e2bb5f22017a"
 
-acorn@^4.0.1, acorn@^4.0.3:
+acorn@^4.0.3:
   version "4.0.4"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-4.0.4.tgz#17a8d6a7a6c4ef538b814ec9abac2779293bf30a"
 
@@ -760,19 +760,7 @@ babel-preset-react@^6.24.1:
     babel-plugin-transform-react-jsx-source "^6.22.0"
     babel-preset-flow "^6.23.0"
 
-babel-register@^6.18.0:
-  version "6.18.0"
-  resolved "https://registry.yarnpkg.com/babel-register/-/babel-register-6.18.0.tgz#892e2e03865078dd90ad2c715111ec4449b32a68"
-  dependencies:
-    babel-core "^6.18.0"
-    babel-runtime "^6.11.6"
-    core-js "^2.4.0"
-    home-or-tmp "^2.0.0"
-    lodash "^4.2.0"
-    mkdirp "^0.5.1"
-    source-map-support "^0.4.2"
-
-babel-register@^6.24.1:
+babel-register@^6.18.0, babel-register@^6.24.1:
   version "6.24.1"
   resolved "https://registry.yarnpkg.com/babel-register/-/babel-register-6.24.1.tgz#7e10e13a2f71065bdfad5a1787ba45bca6ded75f"
   dependencies:
@@ -784,16 +772,16 @@ babel-register@^6.24.1:
     mkdirp "^0.5.1"
     source-map-support "^0.4.2"
 
-babel-runtime@^6.0.0, babel-runtime@^6.11.6, babel-runtime@^6.20.0, babel-runtime@^6.9.0:
-  version "6.20.0"
-  resolved "https://registry.yarnpkg.com/babel-runtime/-/babel-runtime-6.20.0.tgz#87300bdcf4cd770f09bf0048c64204e17806d16f"
+babel-runtime@^6.0.0, babel-runtime@^6.18.0, babel-runtime@^6.22.0:
+  version "6.23.0"
+  resolved "https://registry.yarnpkg.com/babel-runtime/-/babel-runtime-6.23.0.tgz#0a9489f144de70efb3ce4300accdb329e2fc543b"
   dependencies:
     core-js "^2.4.0"
     regenerator-runtime "^0.10.0"
 
-babel-runtime@^6.18.0, babel-runtime@^6.22.0:
-  version "6.23.0"
-  resolved "https://registry.yarnpkg.com/babel-runtime/-/babel-runtime-6.23.0.tgz#0a9489f144de70efb3ce4300accdb329e2fc543b"
+babel-runtime@^6.20.0, babel-runtime@^6.9.0:
+  version "6.20.0"
+  resolved "https://registry.yarnpkg.com/babel-runtime/-/babel-runtime-6.20.0.tgz#87300bdcf4cd770f09bf0048c64204e17806d16f"
   dependencies:
     core-js "^2.4.0"
     regenerator-runtime "^0.10.0"
@@ -1917,14 +1905,7 @@ eslint@^3.19.0:
     text-table "~0.2.0"
     user-home "^2.0.0"
 
-espree@^3.1.6:
-  version "3.3.2"
-  resolved "https://registry.yarnpkg.com/espree/-/espree-3.3.2.tgz#dbf3fadeb4ecb4d4778303e50103b3d36c88b89c"
-  dependencies:
-    acorn "^4.0.1"
-    acorn-jsx "^3.0.0"
-
-espree@^3.4.0:
+espree@^3.1.6, espree@^3.4.0:
   version "3.4.3"
   resolved "https://registry.yarnpkg.com/espree/-/espree-3.4.3.tgz#2910b5ccd49ce893c2ffffaab4fd8b3a31b82374"
   dependencies:
@@ -4066,9 +4047,9 @@ react-dom@^15.5.4:
     object-assign "^4.1.0"
     prop-types "~15.5.7"
 
-react-flag-icon-css@^1.0.14:
-  version "1.0.14"
-  resolved "https://registry.yarnpkg.com/react-flag-icon-css/-/react-flag-icon-css-1.0.14.tgz#d4bf1ea42599ed3cf993968d10042aa399542c6e"
+react-flag-icon-css@^1.0.16:
+  version "1.0.16"
+  resolved "https://registry.yarnpkg.com/react-flag-icon-css/-/react-flag-icon-css-1.0.16.tgz#ba3035a5bfc588509945b346c5a545352d125342"
   dependencies:
     classnames "^2.2.5"
     flag-icon-css "^2.8.0"
