@@ -22,8 +22,8 @@
     "url": "git://github.com/matteocng/react-flag-icon-css-example-multi.git"
   },
   "scripts": {
-    "start": "USE_CSS_MODULES=true babel-node webpack/server.js",
-    "start:classes": "USE_CSS_MODULES=false babel-node webpack/server.js",
+    "start": "cross-env USE_CSS_MODULES=true babel-node webpack/server.js",
+    "start:classes": "cross-env USE_CSS_MODULES=false babel-node webpack/server.js",
     "flow": "flow; test $? -eq 0 -o $? -eq 2",
     "lint": "npm run lint:js && npm run lint:css",
     "lint:js": "eslint src cmrh.conf.js",
@@ -54,6 +54,7 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-register": "^6.24.1",
+    "cross-env": "^5.0.0",
     "css-loader": "^0.28.1",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^13.0.0",
