@@ -38,6 +38,7 @@
   ],
   "dependencies": {
     "node-sass": "^4.5.3",
+    "prop-types": "^15.5.10",
     "react": "^15.5.4",
     "react-css-modules": "^4.0.5",
     "react-dom": "^15.5.4",
