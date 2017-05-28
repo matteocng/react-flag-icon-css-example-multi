@@ -11,3 +11,5 @@ esproposal.export_star_as=enable
 [libs]
 ./node_modules/fbjs/flow/lib
 ./flow/decls
+[version]
+^0.47.0

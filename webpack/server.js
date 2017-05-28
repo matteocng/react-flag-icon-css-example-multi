@@ -1,12 +1,11 @@
 import WebpackDevServer from 'webpack-dev-server'
 import webpack from 'webpack'
-import path from 'path'
+import webpackConfig, { outputPath } from './webpack.config'
 
-import configMaker, { outputPath } from './webpack.config.js'
 
+const configMaker = webpackConfig
 const config = configMaker()
-var compiler = webpack(config)
-
+const compiler = webpack(config)
 
 
 const server = new WebpackDevServer(compiler, {
