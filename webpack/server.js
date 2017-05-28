@@ -1,13 +1,9 @@
 import WebpackDevServer from 'webpack-dev-server'
 import webpack from 'webpack'
-import path from 'path'
-
-import configMaker, { outputPath } from './webpack.config.js'
+import configMaker, { outputPath } from './webpack.config'
 
 const config = configMaker()
-var compiler = webpack(config)
-
-
+const compiler = webpack(config)
 
 const server = new WebpackDevServer(compiler, {
   contentBase: outputPath,

@@ -11,50 +11,52 @@ const CSS_REGEX = /\.css$|\.scss$/
 const context = path.join(__dirname, '../src/js')
 export const outputPath = 'www'
 
+type GetRulesInputType = { useCssModules: boolean }
 
-const getRules = options => {
-  const useCssModules = JSON.parse(process.env.USE_CSS_MODULES)
-
-  return [
-    {
-      test: JS_REGEX,
-      loaders: ['babel-loader'],
-      exclude: /node_modules/
-    },
-    {
-      test: CSS_REGEX,
-      loader: ExtractTextPlugin.extract({
-        fallback: "style-loader",
-        use: [
-          { loader: 'css-loader', query: {
+const getRules = ({ useCssModules }: GetRulesInputType): {}[] => [
+  {
+    test: JS_REGEX,
+    loaders: ['babel-loader'],
+    exclude: /node_modules/
+  },
+  {
+    test: CSS_REGEX,
+    loader: ExtractTextPlugin.extract({
+      fallback: 'style-loader',
+      use: [
+        { loader: 'css-loader',
+          query: {
             modules: useCssModules,
             importLoaders: useCssModules ? 2 : '',
             localIdentName: useCssModules ? '[name]__[local]__[hash:base64:5]' : ''
           } },
-          { loader: 'postcss-loader', options: {
+        { loader: 'postcss-loader',
+          options: {
             plugins: [
               autoprefixer({ browsers: ['last 4 versions'] }),
             ],
           } },
           { loader: 'sass-loader', options: {} }
-        ]
-      }),
-    },
-    {
-      test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-      loader: "file-loader"
-    },
-    {
-      test: /\.json$/,
-      loader: "json-loader"
-    }
- ]
-}
+      ]
+    }),
+  },
+  {
+    test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+    loader: 'file-loader'
+  },
+  {
+    test: /\.json$/,
+    loader: 'json-loader'
+  }
+]
 
 
-const config = options => {
+const config = (options: {}): {} => {
+  const useCssModules = JSON.parse(process.env.USE_CSS_MODULES)
+  const computedOptions = { useCssModules, ...options }
+
   return {
-    context: context,
+    context,
     entry: [
       `webpack-dev-server/client?http://0.0.0.0:${port}/`,
       path.join(context, 'index.js'),
@@ -79,12 +81,12 @@ const config = options => {
       })
     ],
     node: {
-      fs: "empty"
+      fs: 'empty'
     },
     module: {
-      rules: getRules(options)
-   }
- }
+      rules: getRules(computedOptions)
+    }
+  }
 }
 
 export default config
