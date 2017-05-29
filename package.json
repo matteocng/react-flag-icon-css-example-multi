@@ -22,8 +22,8 @@
     "url": "git://github.com/matteocng/react-flag-icon-css-example-multi.git"
   },
   "scripts": {
-    "start": "cross-env USE_CSS_MODULES=true babel-node webpack/server.js",
-    "start:classes": "cross-env USE_CSS_MODULES=false babel-node webpack/server.js",
+    "start": "cross-env USE_CSS_MODULES=true NODE_ENV=development babel-node webpack/server.js",
+    "start:classes": "cross-env USE_CSS_MODULES=false NODE_ENV=development babel-node webpack/server.js",
     "flow": "flow; test $? -eq 0 -o $? -eq 2",
     "lint": "npm run lint:js && npm run lint:css",
     "lint:js": "eslint src webpack cmrh.conf.js",
@@ -31,11 +31,7 @@
     "lint:fix": "eslint src webpack --fix",
     "pre-commit": "npm run lint && npm run flow"
   },
-  "pre-commit": [
-    "lint:js",
-    "lint:css",
-    "flow"
-  ],
+  "pre-commit": "pre-commit",
   "dependencies": {
     "node-sass": "^4.5.3",
     "prop-types": "^15.5.10",
@@ -52,10 +48,8 @@
     "babel-core": "^6.21.0",
     "babel-eslint": "^7.1.1",
     "babel-loader": "^6.2.10",
-    "babel-plugin-transform-object-rest-spread": "^6.20.2",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-react": "^6.24.1",
-    "babel-register": "^6.24.1",
+    "babel-preset-react-app": "^3.0.0",
+    "babel-runtime": "^6.23.0",
     "cross-env": "^5.0.0",
     "css-loader": "^0.28.1",
     "eslint": "^3.19.0",
@@ -77,5 +71,10 @@
     "style-loader": "^0.13.1",
     "webpack": "^2.5.1",
     "webpack-dev-server": "^2.4.5"
+  },
+  "babel": {
+    "presets": [
+      "react-app"
+    ]
   }
 }
