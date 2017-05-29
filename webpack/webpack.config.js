@@ -70,7 +70,7 @@ const config = (options: {}): {} => {
       new webpack.HotModuleReplacementPlugin(),
       new webpack.NamedModulesPlugin(),
       new HtmlWebpackPlugin({
-        title: 'React Flag Icon Css - Webpack Example Multi',
+        title: 'React Flag Icon Css - Webpack 2 Example Multi',
         devServerScript: `http://0.0.0.0:${port}/webpack-dev-server.js`,
         template: path.join(__dirname, 'templates/index.ejs'),
         githubRepositoryUrl: 'https://github.com/matteocng/react-flag-icon-css'
