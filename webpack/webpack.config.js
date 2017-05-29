@@ -80,8 +80,12 @@ const config = (options: {}): {} => {
         __USE_CSS_MODULES__: JSON.stringify(JSON.parse(process.env.USE_CSS_MODULES || 'true'))
       })
     ],
+    // Some libraries import Node modules but don't use them in the browser.
+    // Tell Webpack to provide empty mocks for them so importing them works.
     node: {
-      fs: 'empty'
+      fs: 'empty',
+      net: 'empty',
+      tls: 'empty'
     },
     module: {
       rules: getRules(computedOptions)
