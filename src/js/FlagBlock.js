@@ -64,9 +64,10 @@ const FlagBlock = (props: FlagBlockPropsType): Node => {
           randomFlips[i] ? { flip: randomFlips[i] } : {},
           randomRotates[i] ? { rotate: randomRotates[i] } : {}
         );
+        const n = i;
 
         return (
-          <CustomFlag key={code} {...customFlagProps}>
+          <CustomFlag key={`${code}${n}`} {...customFlagProps}>
             {renderCustomFlagChildren(i, props)}
           </CustomFlag>
         );
