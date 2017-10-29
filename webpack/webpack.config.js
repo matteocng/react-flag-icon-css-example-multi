@@ -1,8 +1,8 @@
 import path from 'path'
 import webpack from 'webpack'
-import HtmlWebpackPlugin from 'html-webpack-plugin'
-import ExtractTextPlugin from 'extract-text-webpack-plugin'
-import autoprefixer from 'autoprefixer'
+import HtmlWebpackPlugin from 'html-webpack-plugin' // eslint-disable-line import/no-extraneous-dependencies
+import ExtractTextPlugin from 'extract-text-webpack-plugin' // eslint-disable-line import/no-extraneous-dependencies
+import autoprefixer from 'autoprefixer' // eslint-disable-line import/no-extraneous-dependencies
 
 
 const port = 8080
