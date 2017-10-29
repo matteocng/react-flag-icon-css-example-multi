@@ -35,9 +35,9 @@
   "dependencies": {
     "node-sass": "^4.5.3",
     "prop-types": "^15.5.10",
-    "react": "^15.5.4",
+    "react": "^16.0.0",
     "react-css-modules": "^4.0.5",
-    "react-dom": "^15.5.4",
+    "react-dom": "^16.0.0",
     "react-flag-icon-css": "^1.0.23",
     "webpack": "^2.5.1",
     "webpack-dev-server": "^2.4.5"
