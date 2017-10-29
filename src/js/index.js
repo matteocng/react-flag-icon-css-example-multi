@@ -12,7 +12,9 @@ const appProps: AppPropsType = {
 
 const rootEL = document.querySelector('#app')
 const render = () => {
-  ReactDOM.render(<App {...appProps} />, rootEL)
+  if (rootEL !== null) {
+    ReactDOM.render(<App {...appProps} />, rootEL)
+  }
 }
 
 render()
