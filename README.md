@@ -1,10 +1,10 @@
 Example project demonstrating the use of [React Flag Icon Css](//github.com/matteocng/react-flag-icon-css) with [React Css Modules](//github.com/gajus/react-css-modules) or standard (global) Css, and custom flags. Powered by [webpack 1](//github.com/webpack/webpack).
 
-### This is the `webpack` **1** example, [click here](https://github.com/matteocng/react-flag-icon-css-example-multi) if you are looking for the `webpack` **2** example.
+### This is the `webpack` **1** example, [click here](https://github.com/matteocng/react-flag-icon-css-example-multi) if you are looking for the `webpack` **3** example.
 
 ## Deprecation warning
 
-**webpack 1 is deprecated**, this branch is an example for existing apps that can't or won't be updated to `webpack 2`. We recommend upgrading to `webpack 2` ([official migration guide](https://webpack.js.org/guides/migrating/)) and then looking at the `react-flag-icon-css` [webpack 2 example](https://github.com/matteocng/react-flag-icon-css-example-multi) in the master branch.
+**webpack 1 is deprecated**, this branch is an example for existing apps that can't or won't be updated to `webpack 2/3`. We recommend upgrading to `webpack 3` ([official migration guide](https://webpack.js.org/guides/migrating/)) and then looking at the `react-flag-icon-css` [webpack 3 example](https://github.com/matteocng/react-flag-icon-css-example-multi) (or the [webpack 2 example](https://github.com/matteocng/react-flag-icon-css-example-multi/tree/webpack-2)) in the master branch.
 
 ## Installation
 

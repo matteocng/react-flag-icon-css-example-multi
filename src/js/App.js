@@ -4,7 +4,8 @@ import CssModulesTransform from 'react-css-modules'
 import { functions } from 'react-flag-icon-css'
 
 import type { CountryType } from 'react-flag-icon-css/lib/types/flow'
-import type ReactType from 'react'
+import type { StatelessFunctionalComponent, Node } from 'react';
+
 import type { AppPropsType, AppFactoryOptionsType } from '../types/flow'
 
 import styles from '../styles/app.scss'
@@ -18,10 +19,10 @@ const aCountries = getCountries()
 const CssModules = CssModulesTransform(styles, { allowMultiple: true })
 
 
-const renderFlagBlock = (oCountry: CountryType): React$Element<*> =>
+const renderFlagBlock = (oCountry: CountryType): Node =>
   <FlagBlock key={oCountry.code} {...oCountry} />
 
-const AppFactory = (options: AppFactoryOptionsType): ReactType.createElement =>
+const AppFactory = (options: AppFactoryOptionsType): StatelessFunctionalComponent<AppPropsType> =>
   (props: AppPropsType): React$Element<*> => {
     const propsHeader = { [options.stylePropName]: 'header' }
     const propsHeading = { [options.stylePropName]: 'heading' }
@@ -37,7 +38,7 @@ const AppFactory = (options: AppFactoryOptionsType): ReactType.createElement =>
         <FlagBlock name="Custom 1" code="w1" />
         <FlagBlock name="Custom 2" code="w2" />
         <FlagBlock name="Custom 3" code="w3" />
-        { aCountries.map((obj: CountryType): React$Element<FlagBlock> => renderFlagBlock(obj)) }
+        { aCountries.map((obj: CountryType): FlagBlock => renderFlagBlock(obj)) }
       </div>
     </span>)
   }
