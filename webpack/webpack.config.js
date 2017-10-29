@@ -24,19 +24,23 @@ const getRules = ({ useCssModules }: GetRulesInputType): {}[] => [
     loader: ExtractTextPlugin.extract({
       fallback: 'style-loader',
       use: [
-        { loader: 'css-loader',
+        {
+          loader: 'css-loader',
           query: {
             modules: useCssModules,
             importLoaders: useCssModules ? 2 : '',
             localIdentName: useCssModules ? '[name]__[local]__[hash:base64:5]' : ''
-          } },
-        { loader: 'postcss-loader',
+          }
+        },
+        {
+          loader: 'postcss-loader',
           options: {
             plugins: [
               autoprefixer({ browsers: ['last 4 versions'] }),
             ],
-          } },
-          { loader: 'sass-loader', options: {} }
+          }
+        },
+        { loader: 'sass-loader', options: {} }
       ]
     }),
   },
