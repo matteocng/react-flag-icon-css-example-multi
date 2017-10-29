@@ -1,6 +1,10 @@
 Example project demonstrating the use of [React Flag Icon Css](https://github.com/matteocng/react-flag-icon-css) with [React Css Modules](//github.com/gajus/react-css-modules) or standard Css, and custom flags.
 
-Powered by [webpack 2](https://github.com/webpack/webpack) (there is also a [webpack 1 version](https://github.com/matteocng/react-flag-icon-css-example-multi/tree/webpack-1)).
+Powered by [webpack 3](https://github.com/webpack/webpack).
+
+Previous versions:
+-   [webpack 2](https://github.com/matteocng/react-flag-icon-css-example-multi/tree/webpack-2)
+-   [webpack 1](https://github.com/matteocng/react-flag-icon-css-example-multi/tree/webpack-1)
 
 ## Installation
 
