@@ -29,7 +29,9 @@ const renderCustomFlagChildren = (
       >
         {name}
       </a>
-      <span {...codeProps}>{code}</span>
+      <span {...codeProps}>
+        {code}
+      </span>
     </div>
   ) : null;
 };

@@ -19,7 +19,6 @@ export const getRandomElements = (
   return randomElements
 }
 
-export const pick = (sourceObj: ObjectType, keys: Array<KeyType>): ObjectType =>
-  keys.reduce((inObj: ObjectType, key: KeyType): ObjectType => { // eslint-disable-line arrow-body-style, max-len
-    return {}.hasOwnProperty.call(sourceObj, key) ? { ...inObj, [key]: sourceObj[key] } : inObj
-  }, {})
+export const pick = (sourceObj: ObjectType, keys: Array<KeyType>): ObjectType => keys.reduce((inObj: ObjectType, key: KeyType): ObjectType => { // eslint-disable-line arrow-body-style, max-len
+  return {}.hasOwnProperty.call(sourceObj, key) ? { ...inObj, [key]: sourceObj[key] } : inObj
+}, {})

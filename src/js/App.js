@@ -1,5 +1,6 @@
 // @flow
 import * as React from 'react';
+import PropTypes from 'prop-types';
 import CssModulesTransform from 'react-css-modules';
 import { functions } from 'react-flag-icon-css';
 
@@ -21,18 +22,25 @@ const renderFlagBlock = (oCountry: CountryType): Node => (
   <FlagBlock key={oCountry.code} {...oCountry} />
 );
 
-const AppFactory = (options: AppFactoryOptionsType): StatelessFunctionalComponent<AppPropsType> =>
-  (props: AppPropsType): Node => {
-    const propsHeader = { [options.stylePropName]: 'header' };
-    const propsHeading = { [options.stylePropName]: 'heading' };
-    const propsSubHeading = { [options.stylePropName]: 'sub-heading' };
-    const propsFlagContainer = { [options.stylePropName]: 'flag-container' };
+const AppFactory = (options: AppFactoryOptionsType): StatelessFunctionalComponent<AppPropsType> => {
+  const { stylePropName: styleProp } = options;
+
+  const App = (props: AppPropsType): Node => {
+    const propsHeader = { [styleProp]: 'header' };
+    const propsHeading = { [styleProp]: 'heading' };
+    const propsSubHeading = { [styleProp]: 'sub-heading' };
+    const propsFlagContainer = { [styleProp]: 'flag-container' };
+    const { headingText, subHeadingText } = props;
 
     return (
       <span>
         <div {...propsHeader}>
-          <div {...propsHeading}>{props.headingText}</div>
-          <div {...propsSubHeading}>{props.subHeadingText}</div>
+          <div {...propsHeading}>
+            {headingText}
+          </div>
+          <div {...propsSubHeading}>
+            {subHeadingText}
+          </div>
         </div>
         <div {...propsFlagContainer}>
           <FlagBlock name="Custom 1" code="w1" />
@@ -43,7 +51,16 @@ const AppFactory = (options: AppFactoryOptionsType): StatelessFunctionalComponen
       </span>
     );
   };
+  App.displayName = 'App';
 
+  App.propTypes = {
+    stylePropName: PropTypes.string.isRequired,
+    headingText: PropTypes.string.isRequired,
+    subHeadingText: PropTypes.string.isRequired,
+  };
+
+  return App
+}
 const AppComponent = AppFactory({ stylePropName });
 const AppComponentTransformed = __USE_CSS_MODULES__
   ? CssModules(AppComponent)
