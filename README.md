@@ -3,8 +3,9 @@ Example project demonstrating the use of [React Flag Icon Css](https://github.co
 Powered by [webpack 3](https://github.com/webpack/webpack).
 
 Previous versions:
--   [webpack 2](https://github.com/matteocng/react-flag-icon-css-example-multi/tree/webpack-2)
--   [webpack 1](https://github.com/matteocng/react-flag-icon-css-example-multi/tree/webpack-1)
+
+- [webpack 2](https://github.com/matteocng/react-flag-icon-css-example-multi/tree/webpack-2)
+- [webpack 1](https://github.com/matteocng/react-flag-icon-css-example-multi/tree/webpack-1)
 
 ## Installation
 
@@ -41,10 +42,11 @@ or with npm:
 $ npm run start
 ```
 
+Open a browser and go here: [http://localhost:8080](http://localhost:8080).
+
 #### Option B) Standard, global Css
 
 Run the [webpack development server](//github.com/webpack/webpack-dev-server) and apply the configuration for standard Css:
-
 
 ```bash
 $ yarn start:classes
@@ -58,6 +60,20 @@ $ npm run start:classes
 
 Open a browser and go here: [http://localhost:8080](http://localhost:8080).
 
+#### Starting the server on another port
+
+You can start the server on another port with this command:
+
+```bash
+$ PORT=5100 yarn start
+```
+
+or with npm:
+
+```bash
+$ PORT=6300 npm run start
+```
+
 ## Notes
 
 This example app uses the <code>USE_CSS_MODULES</code> environment variable (set by <code>[package.json](package.json)</code> scripts) to allow for an easy "switch" between a configuration with or without [React Css Modules](//github.com/gajus/react-css-modules) (see: [webpack.config.js](webpack/webpack.config.js)). This results in more complex code than need be.
@@ -67,11 +83,12 @@ In a real project you would probably choose to either go with [React Css Modules
 ## Styles
 
 This example app uses `sass` (`.scss`) styles, but `sass` is not required to use `react-flag-icon-css`. Your app can use any CSS preprocessor (such as [`postcss`](https://github.com/postcss/postcss)) or no CSS preprocessor at all. For instance, to use [`postcss`](https://github.com/postcss/postcss) in your stylesheets:
--   rename `.scss` files to `.css`.
--   remove *`sass-loader`* from [webpack.config.js](webpack/webpack.config.js).
--   `npm install` or `yarn add` the `PostCSS` plugins that you need.
--   `import()` them into [webpack.config.js](webpack/webpack.config.js)
--   add them to the `postcss-loader` section after `autoprefixer`.
+
+- rename `.scss` files to `.css`.
+- remove _`sass-loader`_ from [webpack.config.js](webpack/webpack.config.js).
+- `npm install` or `yarn add` the `PostCSS` plugins that you need.
+- `import()` them into [webpack.config.js](webpack/webpack.config.js)
+- add them to the `postcss-loader` section after `autoprefixer`.
 
 ## Contributing
 

@@ -3,6 +3,7 @@ import WebpackDevServer from 'webpack-dev-server';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import webpack from 'webpack';
 import configMaker, { outputPath } from './webpack.config';
+import getPort from './port';
 import packageJson from '../package.json';
 
 const {
@@ -23,4 +24,5 @@ const server = new WebpackDevServer(compiler, {
   }
 });
 
-server.listen(8080, '0.0.0.0', () => {});
+const port = getPort();
+server.listen(port, '0.0.0.0', () => {});

@@ -3,8 +3,9 @@ import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin'; // eslint-disable-line import/no-extraneous-dependencies
 import ExtractTextPlugin from 'extract-text-webpack-plugin'; // eslint-disable-line import/no-extraneous-dependencies
 import autoprefixer from 'autoprefixer'; // eslint-disable-line import/no-extraneous-dependencies
+import getPort from './port';
 
-const port = 8080;
+const port = getPort();
 const JS_REGEX = /\.js$|\.jsx$|\.es6$|\.babel$/;
 const CSS_REGEX = /\.css$|\.scss$/;
 const context = path.join(__dirname, '../src/js');
