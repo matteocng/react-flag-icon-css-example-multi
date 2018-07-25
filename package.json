@@ -31,7 +31,7 @@
     "lint:css": "sass-lint 'src/**/*.scss' -v -q",
     "lint:fix": "eslint src webpack --fix",
     "pre-commit": "npm run test && npm audit",
-    "test": "npm run lint:js && npm run lint:css && npm run flow"
+    "test": "npm run lint:js && npm run lint:css && npm run flow && npm audit"
   },
   "pre-commit": "pre-commit",
   "dependencies": {
