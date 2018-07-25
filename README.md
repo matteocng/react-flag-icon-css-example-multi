@@ -1,4 +1,4 @@
-Example project demonstrating the use of [React Flag Icon Css](https://github.com/matteocng/react-flag-icon-css-example-multi) with [React Css Modules](//github.com/gajus/react-css-modules) or standard Css, and custom flags.
+Example project demonstrating the use of [React Flag Icon Css](https://github.com/matteocng/react-flag-icon-css) with [Css Modules](https://github.com/css-modules/css-modules) or standard (global) Css, and custom country flags images.
 
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)]()
 [![Build Status](https://travis-ci.org/matteocng/react-flag-icon-css-example-multi.svg?branch=master)](https://travis-ci.org/matteocng/react-flag-icon-css-example-multi)
@@ -35,9 +35,9 @@ or with npm:
 $ npm install
 ```
 
-#### Option A) React Css Modules
+#### Option A) Css Modules
 
-Run the [webpack development server](//github.com/webpack/webpack-dev-server) and apply the configuration for [React Css Modules](//github.com/gajus/react-css-modules):
+Run the [webpack development server](//github.com/webpack/webpack-dev-server) and apply the configuration for [Css Modules](https://github.com/css-modules/css-modules):
 
 ```bash
 $ yarn start
@@ -50,6 +50,8 @@ $ npm run start
 ```
 
 Open a browser and go here: [http://localhost:8080](http://localhost:8080).
+
+_Please note that this example uses [React Css Modules](https://github.com/gajus/react-css-modules) which is a HOC ([Higher Order Component](https://reactjs.org/docs/higher-order-components.html)) that automatically maps Css Modules to React components. The usage of `React Css Modules` is completely optional; if you don't use it, instead of writing `styleName='some-css-module'`, write `className={styles['some-css-module']}`._
 
 #### Option B) Standard, global Css
 
@@ -81,15 +83,17 @@ or with npm:
 $ PORT=6300 npm run start
 ```
 
-## Notes
+## Notes on `webpack` configuration
 
-This example app uses the <code>USE_CSS_MODULES</code> environment variable (set by <code>[package.json](package.json)</code> scripts) to allow for an easy "switch" between a configuration with or without [React Css Modules](//github.com/gajus/react-css-modules) (see: [webpack.config.js](webpack/webpack.config.js)). This results in more complex code than need be.
+This example app uses the <code>USE_CSS_MODULES</code> environment variable (set by <code>[package.json](package.json)</code> scripts) to allow for an easy "switch" between a configuration with or without [Css Modules](https://github.com/css-modules/css-modules) (see: [webpack.config.js](webpack/webpack.config.js)). This results in more complex code than need be.
 
-In a real project you would probably choose to either go with [React Css Modules](//github.com/gajus/react-css-modules) or standard Css, removing the <code>USE_CSS_MODULES</code> switch and <code>getStylePropName</code>, replacing <code>[options.stylePropName]</code> in the React components with either <code>className</code> (standard Css) or <code>styleName</code> (modules).
+In a real project you would never use the <code>USE_CSS_MODULES</code> switch and <code>getStylePropName</code>, and instead of writing <code>[options.stylePropName]</code> in the React components, you would write <code>className</code> or a combination of <code>className</code> and <code>styleName</code> (if you used `React Css Modules` or [`Babel Plugin React Css Modules`](https://github.com/gajus/babel-plugin-react-css-modules)).
+
+Actually, the recommended approach adopted in the upcoming version of [create-react-app](https://github.com/facebook/create-react-app), is to configure `webpack` so that its loaders load files ending in `.module.css` as `Css Modules`, and files ending in `.css` as global Css. If you decide to go this way by using the upcoming version of `create-react-app` or with a custom app, it is easier to use `React Flag Icon Css` with `useCssModules: false`. Otherwise, you may try forcing any file that contains the pattern `flag-icon-css` and ends with `.css` to be loaded as `Css Modules` in your `webpack` configuration (to be tested!).
 
 ## Styles
 
-This example app uses `sass` (`.scss`) styles, but `sass` is not required to use `react-flag-icon-css-example-multi`. Your app can use any CSS preprocessor (such as [`postcss`](https://github.com/postcss/postcss)) or no CSS preprocessor at all. For instance, to use [`postcss`](https://github.com/postcss/postcss) in your stylesheets:
+This example app uses `sass` (`.scss`) styles, but `sass` is not required to use `react-flag-icon-css`. Your app can use any CSS preprocessor (such as [`postcss`](https://github.com/postcss/postcss)) or no CSS preprocessor at all. For instance, to use [`postcss`](https://github.com/postcss/postcss) in your stylesheets:
 
 - rename `.scss` files to `.css`.
 - remove _`sass-loader`_ from [webpack.config.js](webpack/webpack.config.js).
