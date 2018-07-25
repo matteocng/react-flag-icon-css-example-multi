@@ -24,7 +24,7 @@
   "scripts": {
     "start": "cross-env USE_CSS_MODULES=true NODE_ENV=development babel-node webpack/server.js",
     "start:classes": "cross-env USE_CSS_MODULES=false NODE_ENV=development babel-node webpack/server.js",
-    "flow": "flow; test $? -eq 0 -o $? -eq 2",
+    "flow": "flow --include-warnings",
     "lint": "npm run lint:js && npm run lint:css",
     "lint:js": "eslint src webpack",
     "lint:js:fix": "eslint src webpack --fix",
@@ -35,6 +35,7 @@
   },
   "pre-commit": "pre-commit",
   "dependencies": {
+    "classnames": "^2.2.6",
     "node-sass": "git://github.com/Thermondo/node-sass.git#d08b782208a65958ee29c095a32b502ee77cb7f5",
     "prop-types": "^15.6.2",
     "react": "^16.4.1",
@@ -61,7 +62,7 @@
     "eslint-plugin-react": "^7.10.0",
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^1.1.11",
-    "flow-bin": "^0.57.3",
+    "flow-bin": "^0.77.0",
     "html-webpack-plugin": "^3.2.0",
     "json-loader": "^0.5.7",
     "postcss-loader": "^2.1.6",
