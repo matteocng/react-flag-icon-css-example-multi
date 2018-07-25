@@ -2,7 +2,7 @@
 import path from 'path';
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin'; // eslint-disable-line import/no-extraneous-dependencies
-import ExtractTextPlugin from 'extract-text-webpack-plugin'; // eslint-disable-line import/no-extraneous-dependencies
+import MiniCssExtractPlugin from 'mini-css-extract-plugin'; // eslint-disable-line import/no-extraneous-dependencies
 import autoprefixer from 'autoprefixer'; // eslint-disable-line import/no-extraneous-dependencies
 import getPort from './port';
 
@@ -22,26 +22,31 @@ const getRules = ({ useCssModules }: GetRulesInputType): {}[] => [
   },
   {
     test: CSS_REGEX,
-    loader: ExtractTextPlugin.extract({
-      fallback: 'style-loader',
-      use: [
-        {
-          loader: 'css-loader',
-          query: {
-            modules: useCssModules,
-            importLoaders: useCssModules ? 2 : '',
-            localIdentName: useCssModules ? '[name]__[local]__[hash:base64:5]' : ''
-          }
-        },
-        {
-          loader: 'postcss-loader',
-          options: {
-            plugins: [autoprefixer({ browsers: ['last 4 versions'] })]
-          }
-        },
-        { loader: 'sass-loader', options: {} }
-      ]
-    })
+    use: [
+      {
+        loader: MiniCssExtractPlugin.loader,
+        query: {
+          modules: useCssModules,
+          importLoaders: useCssModules ? 2 : '',
+          localIdentName: useCssModules ? '[name]__[local]__[hash:base64:5]' : ''
+        }
+      },
+      {
+        loader: 'css-loader',
+        query: {
+          modules: useCssModules,
+          importLoaders: useCssModules ? 2 : '',
+          localIdentName: useCssModules ? '[name]__[local]__[hash:base64:5]' : ''
+        }
+      },
+      {
+        loader: 'postcss-loader',
+        options: {
+          plugins: [autoprefixer({ browsers: ['last 4 versions'] })]
+        }
+      },
+      { loader: 'sass-loader', options: {} }
+    ]
   },
   {
     test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
@@ -88,7 +93,7 @@ const makeConfig = (options: OptionsType): MakeConfigReturnType => {
         template: path.join(__dirname, 'templates/index.ejs'),
         githubRepositoryUrl: 'https://github.com/matteocng/react-flag-icon-css'
       }),
-      new ExtractTextPlugin('bundle.css'),
+      new MiniCssExtractPlugin({ filename: 'bundle.css' }),
       new webpack.DefinePlugin({
         __USE_CSS_MODULES__: JSON.stringify(JSON.parse(process.env.USE_CSS_MODULES || 'true')),
         MODULE_VERSION_REACT_FLAG_ICON_CSS: JSON.stringify(moduleVersionReactFlagIconCss),

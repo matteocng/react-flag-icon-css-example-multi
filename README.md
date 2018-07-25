@@ -7,10 +7,11 @@ Example project demonstrating the use of [React Flag Icon Css](https://github.co
 [![devDependencies Status](https://david-dm.org/matteocng/react-flag-icon-css-example-multi/dev-status.svg)](https://david-dm.org/matteocng/react-flag-icon-css-example-multi?type=dev)
 [![peerDependencies Status](https://david-dm.org/matteocng/react-flag-icon-css-example-multi/peer-status.svg)](https://david-dm.org/matteocng/react-flag-icon-css-example-multi?type=peer)
 
-Powered by [webpack 3](https://github.com/webpack/webpack).
+Powered by [webpack 4](https://github.com/webpack/webpack).
 
 Previous versions:
 
+- [webpack 3](https://github.com/matteocng/react-flag-icon-css-example-multi-example-multi/tree/webpack-3)
 - [webpack 2](https://github.com/matteocng/react-flag-icon-css-example-multi-example-multi/tree/webpack-2)
 - [webpack 1](https://github.com/matteocng/react-flag-icon-css-example-multi-example-multi/tree/webpack-1)
 
