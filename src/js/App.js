@@ -30,13 +30,26 @@ const AppFactory = (options: AppFactoryOptionsType): StatelessFunctionalComponen
     const propsHeading = { [styleProp]: 'heading' };
     const propsSubHeading = { [styleProp]: 'sub-heading' };
     const propsFlagContainer = { [styleProp]: 'flag-container' };
-    const { headingText, subHeadingText } = props;
+    const propsSup = { [styleProp]: 'sup' };
+    const {
+      headingText,
+      moduleVersionReactFlagIconCss,
+      moduleVersionWebpack,
+      useCssModules
+    } = props;
+
+    const subHeadingText = `Webpack (${moduleVersionWebpack}) Example ${
+      useCssModules ? 'using CSS Modules' : 'with global CSS'
+    }`;
 
     return (
       <span>
         <div {...propsHeader}>
           <div {...propsHeading}>
             {headingText}
+            <sup {...propsSup}>
+              {moduleVersionReactFlagIconCss}
+            </sup>
           </div>
           <div {...propsSubHeading}>
             {subHeadingText}
@@ -54,16 +67,15 @@ const AppFactory = (options: AppFactoryOptionsType): StatelessFunctionalComponen
   App.displayName = 'App';
 
   App.propTypes = {
-    stylePropName: PropTypes.string.isRequired,
     headingText: PropTypes.string.isRequired,
-    subHeadingText: PropTypes.string.isRequired,
+    moduleVersionWebpack: PropTypes.string.isRequired,
+    moduleVersionReactFlagIconCss: PropTypes.string.isRequired,
+    useCssModules: PropTypes.bool.isRequired
   };
 
-  return App
-}
+  return App;
+};
 const AppComponent = AppFactory({ stylePropName });
-const AppComponentTransformed = __USE_CSS_MODULES__
-  ? CssModules(AppComponent)
-  : AppComponent;
+const AppComponentTransformed = __USE_CSS_MODULES__ ? CssModules(AppComponent) : AppComponent;
 
 export default AppComponentTransformed;

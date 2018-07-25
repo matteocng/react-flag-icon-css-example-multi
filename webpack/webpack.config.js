@@ -1,15 +1,14 @@
-import path from 'path'
-import webpack from 'webpack'
-import HtmlWebpackPlugin from 'html-webpack-plugin' // eslint-disable-line import/no-extraneous-dependencies
-import ExtractTextPlugin from 'extract-text-webpack-plugin' // eslint-disable-line import/no-extraneous-dependencies
-import autoprefixer from 'autoprefixer' // eslint-disable-line import/no-extraneous-dependencies
+import path from 'path';
+import webpack from 'webpack';
+import HtmlWebpackPlugin from 'html-webpack-plugin'; // eslint-disable-line import/no-extraneous-dependencies
+import ExtractTextPlugin from 'extract-text-webpack-plugin'; // eslint-disable-line import/no-extraneous-dependencies
+import autoprefixer from 'autoprefixer'; // eslint-disable-line import/no-extraneous-dependencies
 
-
-const port = 8080
-const JS_REGEX = /\.js$|\.jsx$|\.es6$|\.babel$/
-const CSS_REGEX = /\.css$|\.scss$/
-const context = path.join(__dirname, '../src/js')
-export const outputPath = 'www'
+const port = 8080;
+const JS_REGEX = /\.js$|\.jsx$|\.es6$|\.babel$/;
+const CSS_REGEX = /\.css$|\.scss$/;
+const context = path.join(__dirname, '../src/js');
+export const outputPath = 'www';
 
 type GetRulesInputType = { useCssModules: boolean }
 
@@ -35,14 +34,12 @@ const getRules = ({ useCssModules }: GetRulesInputType): {}[] => [
         {
           loader: 'postcss-loader',
           options: {
-            plugins: [
-              autoprefixer({ browsers: ['last 4 versions'] }),
-            ],
+            plugins: [autoprefixer({ browsers: ['last 4 versions'] })]
           }
         },
         { loader: 'sass-loader', options: {} }
       ]
-    }),
+    })
   },
   {
     test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
@@ -52,23 +49,20 @@ const getRules = ({ useCssModules }: GetRulesInputType): {}[] => [
     test: /\.json$/,
     loader: 'json-loader'
   }
-]
-
+];
 
 const config = (options: {}): {} => {
-  const useCssModules = JSON.parse(process.env.USE_CSS_MODULES)
-  const computedOptions = { useCssModules, ...options }
+  const useCssModules = JSON.parse(process.env.USE_CSS_MODULES);
+  const computedOptions = { useCssModules, ...options };
+  const { moduleVersionReactFlagIconCss, moduleVersionWebpack } = computedOptions;
 
   return {
     context,
-    entry: [
-      `webpack-dev-server/client?http://0.0.0.0:${port}/`,
-      path.join(context, 'index.js'),
-    ],
+    entry: [`webpack-dev-server/client?http://0.0.0.0:${port}/`, path.join(context, 'index.js')],
     output: {
       path: path.join(__dirname, outputPath),
       filename: 'bundle.js',
-      publicPath: '/',
+      publicPath: '/'
     },
     plugins: [
       new webpack.HotModuleReplacementPlugin(),
@@ -81,7 +75,9 @@ const config = (options: {}): {} => {
       }),
       new ExtractTextPlugin('bundle.css'),
       new webpack.DefinePlugin({
-        __USE_CSS_MODULES__: JSON.stringify(JSON.parse(process.env.USE_CSS_MODULES || 'true'))
+        __USE_CSS_MODULES__: JSON.stringify(JSON.parse(process.env.USE_CSS_MODULES || 'true')),
+        MODULE_VERSION_REACT_FLAG_ICON_CSS: JSON.stringify(moduleVersionReactFlagIconCss),
+        MODULE_VERSION_WEBPACK: JSON.stringify(moduleVersionWebpack)
       })
     ],
     // Some libraries import Node modules but don't use them in the browser.
@@ -94,7 +90,7 @@ const config = (options: {}): {} => {
     module: {
       rules: getRules(computedOptions)
     }
-  }
-}
+  };
+};
 
-export default config
+export default config;

@@ -1,20 +1,16 @@
 module.exports = {
   parser: 'babel-eslint',
-  plugins: [
-    'react',
-    'flowtype',
-    'import',
-    'babel'
-  ],
+  plugins: ['react', 'flowtype', 'import', 'babel'],
   env: {
     browser: true
   },
   extends: ['airbnb'],
   globals: {
-    __USE_CSS_MODULES__: true
+    __USE_CSS_MODULES__: true,
+    MODULE_VERSION_WEBPACK: '',
+    MODULE_VERSION_REACT_FLAG_ICON_CSS: ''
   },
-  rules:
-  {
+  rules: {
     'import/no-duplicates': 1,
     'no-duplicate-imports': 0,
     'babel/new-cap': 0,
@@ -25,19 +21,10 @@ module.exports = {
     'comma-dangle': 0,
     'react/jsx-filename-extension': 0,
     'react/require-extension': 'off',
-    'flowtype/boolean-style': [
-      2,
-      'boolean'
-    ],
+    'flowtype/boolean-style': [2, 'boolean'],
     'flowtype/define-flow-type': 1,
-    'flowtype/delimiter-dangle': [
-      2,
-      'never'
-    ],
-    'flowtype/generic-spacing': [
-      2,
-      'never'
-    ],
+    'flowtype/delimiter-dangle': [2, 'never'],
+    'flowtype/generic-spacing': [2, 'never'],
     'flowtype/no-weak-types': 2,
     'flowtype/require-parameter-type': 2,
     'flowtype/require-return-type': [
@@ -48,38 +35,18 @@ module.exports = {
       }
     ],
     'flowtype/require-valid-file-annotation': 2,
-    'flowtype/semi': [
-      2,
-      'never'
-    ],
-    'flowtype/space-after-type-colon': [
-      2,
-      'always'
-    ],
-    'flowtype/space-before-generic-bracket': [
-      2,
-      'never'
-    ],
-    'flowtype/space-before-type-colon': [
-      2,
-      'never'
-    ],
-    'flowtype/type-id-match': [
-      2,
-      '^([A-Z][a-z0-9]+)+Type$'
-    ],
-    'flowtype/union-intersection-spacing': [
-      2,
-      'always'
-    ],
+    'flowtype/semi': [2, 'never'],
+    'flowtype/space-after-type-colon': [2, 'always'],
+    'flowtype/space-before-generic-bracket': [2, 'never'],
+    'flowtype/space-before-type-colon': [2, 'never'],
+    'flowtype/type-id-match': [2, '^([A-Z][a-z0-9]+)+Type$'],
+    'flowtype/union-intersection-spacing': [2, 'always'],
     'flowtype/use-flow-type': 1,
     'flowtype/valid-syntax': 1
   },
-  settings:
-  {
-    flowtype:
-    {
+  settings: {
+    flowtype: {
       onlyFilesWithFlowAnnotation: false
     }
   }
-}
+};

@@ -12,7 +12,8 @@ export type AppFactoryOptionsType = {|
 
 export type AppPropsType = {|
   headingText: String,
-  subHeadingText: String
+  subHeadingText: String,
+  moduleVersionReactFlagIconCss: String
 |}
 
 export type KeyType = string | number
