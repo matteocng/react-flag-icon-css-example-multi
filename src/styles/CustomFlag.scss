@@ -1,23 +1,22 @@
 @import 'variables';
 
-
 .flag {
   margin-left: -1rem;
 
   &:nth-child(1) {
-    opacity: $flag-starting-opacity - .5;
+    opacity: $flag-starting-opacity - 0.5;
   }
 
   &:nth-child(2) {
-    opacity: $flag-starting-opacity - .4;
+    opacity: $flag-starting-opacity - 0.4;
   }
 
   &:nth-child(3) {
-    opacity: $flag-starting-opacity - .3;
+    opacity: $flag-starting-opacity - 0.3;
   }
 
   &:nth-child(4) {
-    opacity: $flag-starting-opacity - .2;
+    opacity: $flag-starting-opacity - 0.2;
   }
 
   &:nth-child(5) {

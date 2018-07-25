@@ -4,9 +4,11 @@
   $instructions: '';
   @if ($max and $min) {
     $instructions: '(min-width: #{$min}) and (max-width: #{$max})';
-  }@elseif ($min) {
+  }
+  @elseif ($min) {
     $instructions: '(min-width: #{$min})';
-  }@elseif ($max) {
+  }
+  @elseif ($max) {
     $instructions: '(max-width: #{$max})';
   }
 
@@ -62,11 +64,11 @@
 @mixin flag-block-mq-content($items-per-row) {
   width: calc(100% / #{$items-per-row});
 
-  &:nth-child(#{$items-per-row}n+#{$items-per-row}) {
+  &:nth-child(#{$items-per-row}n + #{$items-per-row}) {
     border-right: 0;
   }
 
-  &:nth-last-child(-n+#{$items-per-row - 1}) {
+  &:nth-last-child(-n + #{$items-per-row - 1}) {
     border-bottom: 0;
   }
 }

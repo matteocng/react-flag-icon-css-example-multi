@@ -2,13 +2,12 @@
 @import 'mixins';
 @import 'colors';
 
-
 body {
   font-family: 'Open Sans', sans-serif;
   font-size: 1rem;
 }
 
-%base-heading {
+@mixin base-heading {
   text-align: center;
   text-transform: uppercase;
 }
@@ -18,14 +17,14 @@ body {
 }
 
 .heading {
-  @extend %base-heading;
+  @include base-heading;
   font-size: 1.5rem;
 }
 
 .sub-heading {
-  @extend %base-heading;
+  @include base-heading;
   color: col(red-it);
-  font-size: .8rem;
+  font-size: 0.8rem;
 }
 
 // Flags
