@@ -1,3 +1,4 @@
+// @flow
 // eslint-disable-next-line import/no-extraneous-dependencies
 import WebpackDevServer from 'webpack-dev-server';
 // eslint-disable-next-line import/no-extraneous-dependencies

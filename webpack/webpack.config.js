@@ -1,3 +1,4 @@
+// @flow
 import path from 'path';
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin'; // eslint-disable-line import/no-extraneous-dependencies
@@ -52,8 +53,21 @@ const getRules = ({ useCssModules }: GetRulesInputType): {}[] => [
   }
 ];
 
-const config = (options: {}): {} => {
-  const useCssModules = JSON.parse(process.env.USE_CSS_MODULES);
+type OptionsType = {
+  useCssModules?: boolean,
+  moduleVersionReactFlagIconCss: string,
+  moduleVersionWebpack: string
+}
+
+type MakeConfigReturnType = {
+  output: {
+    publicPath: string,
+    filename: string
+  }
+}
+
+const makeConfig = (options: OptionsType): MakeConfigReturnType => {
+  const useCssModules = JSON.parse(process.env.USE_CSS_MODULES || 'false');
   const computedOptions = { useCssModules, ...options };
   const { moduleVersionReactFlagIconCss, moduleVersionWebpack } = computedOptions;
 
@@ -94,4 +108,4 @@ const config = (options: {}): {} => {
   };
 };
 
-export default config;
+export default makeConfig;
