@@ -30,7 +30,7 @@
     "lint:js:fix": "eslint src webpack --fix",
     "lint:css": "sass-lint 'src/**/*.scss' -v -q",
     "lint:fix": "eslint src webpack --fix",
-    "pre-commit": "npm run test && npm audit",
+    "pre-commit": "validate-commit-msg && npm run test",
     "test": "npm run lint:js && npm run lint:css && npm run flow && npm audit"
   },
   "pre-commit": "pre-commit",
@@ -64,12 +64,13 @@
     "file-loader": "^1.1.11",
     "flow-bin": "^0.77.0",
     "html-webpack-plugin": "^3.2.0",
+    "husky": "^1.0.0-rc.13",
     "json-loader": "^0.5.7",
     "postcss-loader": "^2.1.6",
-    "pre-commit": "^1.2.2",
     "sass-lint": "^1.12.1",
     "sass-loader": "^7.0.3",
     "style-loader": "^0.21.0",
+    "validate-commit": "^3.4.0",
     "webpack": "^3.12.0",
     "webpack-dev-server": "^2.11.2"
   },
@@ -82,5 +83,10 @@
     "singleQuote": true,
     "trailingComma": "all",
     "arrowParens": "always"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run pre-commit"
+    }
   }
 }
