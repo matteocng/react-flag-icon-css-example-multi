@@ -36,12 +36,12 @@
   "pre-commit": "pre-commit",
   "dependencies": {
     "classnames": "^2.2.6",
-    "node-sass": "git://github.com/Thermondo/node-sass.git#d08b782208a65958ee29c095a32b502ee77cb7f5",
+    "node-sass": "4.11.0",
     "prop-types": "^15.6.2",
-    "react": "^16.4.1",
+    "react": "^16.7.0",
     "react-css-modules": "^4.7.4",
-    "react-dom": "^16.4.1",
-    "react-flag-icon-css": "^1.0.24"
+    "react-dom": "^16.7.0",
+    "react-flag-icon-css": "^1.0.25"
   },
   "devDependencies": {
     "autoprefixer": "^9.0.1",
@@ -72,7 +72,7 @@
     "style-loader": "^0.21.0",
     "validate-commit": "^3.4.0",
     "webpack": "^4.16.2",
-    "webpack-dev-server": "^3.1.5"
+    "webpack-dev-server": "^3.1.14"
   },
   "babel": {
     "presets": [
