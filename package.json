@@ -40,7 +40,7 @@
     "prop-types": "^15.6.2",
     "react": "^16.8.2",
     "react-css-modules": "^4.7.4",
-    "react-dom": "^16.7.0",
+    "react-dom": "^16.8.2",
     "react-flag-icon-css": "^1.0.25"
   },
   "devDependencies": {
