@@ -44,7 +44,7 @@
     "react-flag-icon-css": "^1.0.25"
   },
   "devDependencies": {
-    "autoprefixer": "^9.0.1",
+    "autoprefixer": "^9.6.4",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.6",
